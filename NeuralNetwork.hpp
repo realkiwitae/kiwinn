@@ -32,5 +32,6 @@ public:
 
 	void loadCoeffsSymmetrical(uint8_t coeffs[]);
 	void calc(double input[]);
+	double* getOutput();
 };
 #endif

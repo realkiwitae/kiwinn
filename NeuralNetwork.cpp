@@ -58,3 +58,7 @@ void NeuralNetwork::calc(double input[]) {
         stages[i].calc();
     }
 }
+
+double* NeuralNetwork::getOutput(){
+    return stages[nb_stages-1].output;
+}

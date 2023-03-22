@@ -15,6 +15,7 @@ public:
 
     void init(int _size,int dna_size);
     void breed();
+    DNA* getDNA(int i){return dnas[i];}
 private:
     DNA* dnas[POOL_SIZE];
     int gen;
