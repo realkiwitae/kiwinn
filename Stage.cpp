@@ -21,9 +21,9 @@ void Stage::calc(){
     for (int i = 0; i < output_length; i++){
         double sum = 0;
         for (int j = 0; j < prev->output_length-1; j++){
-            sum += coeffs[i][j]*prev->output[j];
+            sum += (coeffs[i][j]/255.f - .5f)*prev->output[j];
         }
-        sum += coeffs[i][prev->output_length-1]*signalMultiplier;  //constant bias
+        sum += (coeffs[i][prev->output_length-1]/255.f - .5f)*signalMultiplier;  //constant bias
         output[i] = sigmoid(sum);
     }
 }

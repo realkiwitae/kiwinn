@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <algorithm>
+#include <iostream>
 
 GeneticPool::GeneticPool()
 {
@@ -14,11 +15,15 @@ GeneticPool::~GeneticPool()
 }
 
 void GeneticPool::init(int _size,int dna_size){
+    std::ofstream outdbg = std::ofstream("gen.dbg",std::ofstream::out | std::ofstream::trunc);
     size = _size;
     for(size_t i = 0; i < size; i++){
         dnas[i] = new DNA(true, dna_size);
+        outdbg << *dnas[i] << std::endl;
     }
     gen = 1;
+
+
 }
 
 void GeneticPool::breed(){
@@ -30,6 +35,9 @@ void GeneticPool::breed(){
     std::sort(dnas, dnas + size,
     [](const DNA* dna_a, const DNA* dna_b )
         { return  dna_a->fitness > dna_b->fitness;});
+
+    std::cout << "Gen :" << gen;
+    std::cout << " max fitness: " << dnas[0]->fitness << std::endl;
 
     for(int i = (int)(size*0.03f); i < (int)(size*.2f) ;i++){
         int a = fastRandInt(0,(int)(size*0.03f));

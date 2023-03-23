@@ -110,3 +110,11 @@ void DNA::crossoverBytewise(const DNA* other,DNA* newDNA, double mutationprob){
         newDNA->data[i/8] |= (bit << (i%8));
     }
 }
+
+std::ostream &operator<<(std::ostream &os, const DNA& a){
+    os << "dna: f=" << a.fitness << " data:{";  
+    for(size_t i = 0; i < a.length; i++){
+        os << (int)a.data[i] << " ";
+    }
+    os << "}";
+}

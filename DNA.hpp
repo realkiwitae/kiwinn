@@ -5,6 +5,7 @@
 #define MAX_DATA_SIZE 2000
 
 #include <stdint.h>
+#include <iostream>
 
 inline int fastRandInt(int maxSize);
 inline int fastRandInt(int a, int b);
@@ -17,7 +18,7 @@ class DNA
 	
 	uint8_t data[MAX_DATA_SIZE];
 	int length;
-	int fitness;
+	double fitness;
 
 	public:
 
@@ -49,5 +50,7 @@ class DNA
 	 * Bits flip according to mutation probability
 	 */
 	void crossoverBytewise(const DNA* other,DNA* newDNA, double mutationprob);
+
+	friend std::ostream &operator<<(std::ostream &os, const DNA& a);
 };
 #endif
