@@ -14,6 +14,7 @@ DNA::DNA(bool random, int size):length(size){
     for (int i = 0; i < size; i++){
         data[i] = random?floor(fastRandInt(256)):0;
     }
+    fitness = 0.f;
 }
 	
 DNA::~DNA()

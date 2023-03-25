@@ -43,12 +43,12 @@ void GeneticPool::breed(){
         int a = fastRandInt(0,(int)(size*0.03f));
         delete dnas[i];
         dnas[i] = new DNA(*dnas[a]);
-        dnas[i]->mutateNoise(.2f,.1f);
+        dnas[i]->mutateNoise(.1f,.1f);
     }
     for(int i = (int)(size*.2f); i < (int)(size*.95f) ;i++){
         int a = fastRandInt(0,(int)(size*0.2f));
         int b = fastRandInt(0,(int)(size*0.2f));
-        dnas[a]->crossover(dnas[b],dnas[i] ,0.1f);      
+        dnas[a]->crossover(dnas[b],dnas[i] ,0.05f);      
     }
     for(int i = (int)(size*.95f) ; i < size;i++){
         delete dnas[i];
